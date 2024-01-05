@@ -1,0 +1,397 @@
+@import "index";
+
+$Soft-red: hsl(7, 99%, 70%);
+$Yellow: hsl(51, 100%, 49%);
+$Dark-desaturated-cyan-graphic-design-text: hsl(167, 40%, 24%);
+$Dark-blue-photography-text: hsl(198, 62%, 26%);
+$Dark-moderate-cyan-footer: hsl(168, 34%, 41%);
+
+$Very-dark-desaturated-blue: hsl(212, 27%, 19%);
+$Very-dark-grayish-blue: hsl(213, 9%, 39%);
+$Dark-grayish-blue: hsl(232, 10%, 55%);
+$Grayish-blue: hsl(210, 4%, 67%);
+$White: hsl(0, 0%, 100%);
+
+body {
+  min-height: 100dvh;
+  font-family: "Barlow", sans-serif;
+  .section__heading,
+  .hero__heading,
+  .contact,
+  .section__link,
+  .testimonials__heading,
+  .user__name {
+    font-family: "Fraunces", serif;
+    color: $Very-dark-desaturated-blue;
+  }
+  .header {
+    position: fixed;
+    padding: 2rem 1.2rem;
+    background: rgb(60, 189, 253);
+    z-index: 10;
+    transition: 0.3s ease-in-out;
+    @media (min-width: 64rem) {
+      padding: 3rem 2.6rem;
+    }
+    &.scrolled {
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 7px 20px rgba($color: #000000, $alpha: 0.3);
+      @media (min-width: 64rem) {
+        padding: 2rem 2.6rem;
+      }
+    }
+    .header__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .nav {
+        @media (min-width: 64rem) {
+          flex: 1;
+        }
+
+        .menu__button {
+          background: transparent;
+          outline: none;
+          border: none;
+          @media (min-width: 64rem) {
+            display: none;
+          }
+        }
+        .Menu__List {
+          position: fixed;
+          right: 1.2rem;
+          background: white;
+          width: 90%;
+          min-height: 15rem;
+          @include flex_column;
+          align-items: center;
+          gap: 2.5rem;
+          text-align: center;
+          font-size: 1.2rem;
+          padding: 3.5rem 0;
+          margin: 3rem 0;
+          color: $Very-dark-grayish-blue;
+          transform: translateY(-150%);
+          transition: all 0.5s ease-in;
+          @media (min-width: 64rem) {
+            all: unset;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            .List__Items {
+              margin-left: 3rem;
+              color: $White;
+              font-family: "Barlow", sans-serif;
+              cursor: pointer;
+            }
+          }
+          &.show {
+            transform: translateY(0);
+          }
+          &::before {
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            right: 0;
+            top: -1.6rem;
+            border-top: 30px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-right: 30px solid white;
+            @media (min-width: 64rem) {
+              display: none;
+            }
+          }
+          .contact {
+            background: $Yellow;
+            width: fit-content;
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            text-transform: uppercase;
+            @media (min-width: 64rem) {
+              font-family: "Fraunces", serif;
+
+              background: $White;
+              color: $Very-dark-desaturated-blue;
+              transition: 0.5s;
+              &:hover {
+                background: #6fcfff;
+                color: $White;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .main {
+    .hero__container {
+      background: url(./images/mobile/image-header.jpg) no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      min-height: 100vh;
+      color: white;
+      @include place_item_center;
+      align-content: start;
+      gap: 5rem;
+      padding-top: 9rem;
+      @media (min-width: 64rem) {
+        background: url(./images/desktop/image-header.jpg) center/cover
+          no-repeat;
+        padding-top: 10rem;
+      }
+      .hero__heading {
+        font-size: 2.5rem;
+        letter-spacing: 0.4rem;
+        text-align: center;
+        font-weight: 900;
+        color: $White;
+        text-transform: uppercase;
+        @media (min-width: 64rem) {
+          font-size: 3rem;
+          letter-spacing: 0.5rem;
+        }
+      }
+      .hero__image {
+        width: 2.5rem;
+      }
+    }
+
+    .section__one {
+      @include flex_columnR;
+      @media (min-width: 64rem) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        img {
+          height: 100%;
+        }
+      }
+      .section__block {
+        @include section__block;
+        @media (min-width: 64rem) {
+          place-items: start;
+          text-align: unset;
+          padding: 8rem;
+          gap: 2rem;
+        }
+        .section__heading {
+          @include section__heading;
+          @media (min-width: 64rem) {
+            font-size: 3rem;
+          }
+        }
+        .section__text {
+          @include section__text;
+        }
+        .section__link {
+          @include section__link;
+        }
+      }
+      .section__link {
+        &::after {
+          @include section__link__after;
+          background: rgba($color: $Yellow, $alpha: 0.3);
+        }
+        &:hover::after {
+          background: rgba($color: $Yellow, $alpha: 0.8);
+        }
+      }
+    }
+    .section__two {
+      @media (min-width: 64rem) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        img {
+          height: 100%;
+        }
+      }
+      .section__block {
+        @include section__block;
+        @media (min-width: 64rem) {
+          place-items: start;
+          text-align: unset;
+          padding: 7.7rem;
+          gap: 2rem;
+        }
+        .section__heading {
+          @include section__heading;
+          @media (min-width: 64rem) {
+            font-size: 2.5rem;
+          }
+        }
+        .section__text {
+          @include section__text;
+        }
+        .section__link {
+          @include section__link;
+        }
+      }
+      .section__text {
+        line-height: 1.5rem;
+        width: 95%;
+      }
+      .section__link {
+        &::after {
+          @include section__link__after;
+          background: rgba($color: $Soft-red, $alpha: 0.3);
+        }
+        &:hover::after {
+          background: rgba($color: $Soft-red, $alpha: 0.8);
+        }
+      }
+    }
+    .illustrations__container {
+      @media (min-width: 64rem) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .section__three {
+        @include illustration__sections;
+        background: url(./images/mobile/image-graphic-design.jpg) no-repeat;
+        background-size: cover;
+        @media (min-width: 64rem) {
+          background: url(./images/desktop/image-graphic-design.jpg)
+            center/cover no-repeat;
+          min-height: 35rem;
+          padding: 0rem 10.4rem 4rem;
+        }
+        .illustration__text {
+          display: grid;
+          gap: 1.5rem;
+          color: $Dark-desaturated-cyan-graphic-design-text;
+          .illustration__heading {
+            font-family: "Fraunces", serif;
+            text-transform: capitalize;
+            font-weight: 900;
+          }
+        }
+      }
+      .section__four {
+        @include illustration__sections;
+        background: url(./images/mobile/image-photography.jpg) no-repeat;
+        background-size: cover;
+        @media (min-width: 64rem) {
+          background: url(./images/desktop/image-photography.jpg) center/cover
+            no-repeat;
+          min-height: 35rem;
+          padding: 0rem 10.4rem 4rem;
+        }
+        .illustration__text {
+          display: grid;
+          gap: 1.5rem;
+          color: $Dark-blue-photography-text;
+          .illustration__heading {
+            font-family: "Fraunces", serif;
+            text-transform: capitalize;
+            font-weight: 900;
+          }
+        }
+      }
+    }
+    .testimonials__section {
+      @include place_item_center;
+      padding: 4rem 2rem 5.5rem;
+      gap: 4rem;
+      @media (min-width: 64rem) {
+        padding: 7rem 10rem;
+      }
+      .testimonials__heading {
+        text-transform: uppercase;
+        color: $Grayish-blue;
+        letter-spacing: 0.3rem;
+        font-size: 1rem;
+        font-weight: 900;
+      }
+      .testimonials__container {
+        @include flex_column;
+        gap: 3.5rem;
+        @media (min-width: 64rem) {
+          flex-direction: row;
+          gap: 1.11rem;
+        }
+        .testimonial__section {
+          @include flex_column;
+          align-items: center;
+          text-align: center;
+          color: $Very-dark-grayish-blue;
+          gap: 2.3rem;
+          img {
+            width: 4.5rem;
+            border-radius: 50%;
+          }
+          blockquote {
+            line-height: 2rem;
+            font-size: 1.075rem;
+          }
+          figcaption {
+            p {
+              @include flex_column;
+              gap: 0.5rem;
+              color: $Grayish-blue;
+              cite {
+                font-style: normal;
+                font-weight: 900;
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .illustrations {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      @media (min-width: 64rem) {
+        display: flex;
+      }
+      img {
+        height: 100%;
+      }
+    }
+  }
+  footer {
+    background: rgb(144, 212, 197);
+    display: grid;
+    gap: 3rem;
+    padding: 5rem 3.5rem;
+    color: $Dark-moderate-cyan-footer;
+    .footer__logo {
+      margin: 0 auto;
+      width: 11rem;
+      filter: brightness(0) saturate(100%) invert(36%) sepia(7%) saturate(3819%)
+        hue-rotate(116deg) brightness(100%) contrast(78%);
+      &:hover {
+        filter: invert(0);
+      }
+    }
+    .footer__list {
+      display: flex;
+      justify-content: space-around;
+      gap: 3rem;
+      @media (min-width: 64rem) {
+        justify-content: center;
+      }
+      li {
+        &:hover {
+          color: $White;
+          cursor: pointer;
+        }
+      }
+    }
+    .footer__list__social {
+      @include place_item_center;
+      .social__list {
+        display: flex;
+        gap: 1.5rem;
+        li {
+          cursor: pointer;
+          &:hover {
+            color: $White;
+          }
+        }
+      }
+    }
+  }
+}
